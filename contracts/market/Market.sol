@@ -29,7 +29,7 @@ contract Market {
     uint256 public constant SPIKE_BASE_UNIT = 1;
     
 
-    MintableToken public spike;
+    SpikeToken public spike;
     SingularityNetToken public token;
 
     address public owner;
@@ -66,7 +66,7 @@ contract Market {
         //Update pool
         pool = pool.sub(reward);
         // Update now the SPIKE total supply along with the balance
-        //spike.unmint(msg.sender, SPIKE_BASE_UNIT);
+        spike.unmint(msg.sender, SPIKE_BASE_UNIT);
         //Update price in AGI
         require(updatePrice(AGI_BASE_UNIT, false));
     }
